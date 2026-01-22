@@ -49,5 +49,27 @@ document.addEventListener('DOMContentLoaded', () => {
         // Otherwise, block right-click
         event.preventDefault();
     });
+    // ... existing clock logic ...
+
+    // --- 3. Scroll Reveal Animation (Intersection Observer) ---
+    const revealElements = document.querySelectorAll('.project-item, .skill-category, .edu-item, .quote-box');
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target); // Stop watching once revealed (performance)
+            }
+        });
+    }, {
+        root: null,
+        threshold: 0.15, // Trigger when 15% of the element is visible
+        rootMargin: "0px"
+    });
+
+    revealElements.forEach(el => {
+        el.classList.add('reveal'); // Add base class via JS (so it's visible if JS fails)
+        revealObserver.observe(el);
+    });
 
 });
