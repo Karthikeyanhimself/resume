@@ -153,6 +153,11 @@
             margin-bottom: 16px;
         }
         
+        .project-links {
+            display: flex;
+            gap: 8px;
+        }
+
         .project-links a {
             font-family: var(--font-tech);
             font-size: 0.8rem;
@@ -167,6 +172,14 @@
             border-color: var(--text-primary);
             background: var(--text-primary);
             color: #fff;
+        }
+
+        /* Concept Tag Style */
+        .tag-concept {
+            cursor: default;
+            background: #f4f4f5 !important;
+            color: #71717a !important; 
+            border-color: transparent !important;
         }
 
         .project-details {
@@ -260,6 +273,21 @@
             
             <section id="projects">
                 <h2>Selected Engineering</h2>
+
+                <article class="project-item">
+                    <div class="project-header">
+                        <h3>Sharvi Infotech (Redesign)</h3>
+                        <span class="project-links">
+                            <a href="#" class="tag-concept">Concept</a>
+                            <a href="https://sharvi-infotech-redesign.vercel.app/" target="_blank">Live Demo</a>
+                        </span>
+                    </div>
+                    <ul class="project-details">
+                        <li>Unofficial, high-performance landing page redesign demonstrating modern enterprise UI patterns.</li>
+                        <li>Implemented immersive 3D elements using React Three Fiber without compromising Core Web Vitals.</li>
+                        <li>Engineered with Next.js 14, Tailwind CSS, and Framer Motion for fluid interactivity.</li>
+                    </ul>
+                </article>
 
                 <article class="project-item">
                     <div class="project-header">
