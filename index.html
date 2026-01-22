@@ -1,276 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Portfolio of Karthikeyan Reddy Tiyyagura" />
-    <title>Karthikeyan Reddy — Architect & Engineer</title>
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <title>Karthikeyan Reddy</title>
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://karthikeyanhimself.vercel.app/">
+    <meta property="og:title" content="Karthikeyan Reddy — Full-Stack Architect">
+    <meta property="og:description"
+        content="Senior Architect & CS Undergraduate. Specialist in AI/ML, Next.js, and High-Performance Systems.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Karthikeyan Reddy — Full-Stack Architect">
+    <meta name="twitter:description" content="No buzzwords. Just systems, data, and shipped work.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+        rel="stylesheet">
 
-    <style>
-        /* --- DESIGN TOKENS --- */
-        :root {
-            /* Palette: Organic, Paper-like, High Contrast */
-            --bg: #FDFBF7;           /* Warm Rice Paper */
-            --surface: #FFFFFF;      /* Pure White */
-            --text-primary: #1a1a1a; /* Soft Black */
-            --text-secondary: #4a4a4a;
-            --text-tertiary: #8c8c8c;
-            --accent: #D94625;       /* Burnt Orange/Rust (Classic Editorial Accent) */
-            --border: #e6e2dd;
-            
-            /* Type Scale */
-            --font-elegant: 'Cormorant Garamond', serif;
-            --font-tech: 'Anonymous Pro', monospace;
-            
-            --max-w: 1200px;
-        }
-
-        /* --- RESET & BASE --- */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        body {
-            background-color: var(--bg);
-            color: var(--text-primary);
-            font-family: var(--font-elegant);
-            font-size: 20px; /* Serifs need to be larger to be readable */
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        a { 
-            text-decoration: none; 
-            color: inherit; 
-            border-bottom: 1px solid var(--border);
-            transition: all 0.2s ease;
-        }
-        
-        a:hover { 
-            color: var(--accent); 
-            border-bottom-color: var(--accent); 
-        }
-
-        /* --- LAYOUT GRID --- */
-        .layout {
-            max-width: var(--max-w);
-            margin: 0 auto;
-            padding: 40px 24px;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 60px;
-        }
-
-        @media (min-width: 900px) {
-            .layout {
-                grid-template-columns: 320px 1fr; /* Fixed Sidebar | Fluid Content */
-                gap: 100px;
-                padding: 100px 40px;
-            }
-            .sidebar {
-                position: sticky;
-                top: 80px;
-                height: fit-content;
-                text-align: right; /* Editorial touch: Right align sidebar on desktop */
-            }
-        }
-
-        /* --- TYPOGRAPHY --- */
-        h1, h2, h3 { 
-            font-weight: 600; 
-            color: var(--text-primary);
-        }
-
-        h1 { 
-            font-size: 3rem; 
-            line-height: 1; 
-            margin-bottom: 0.5rem; 
-            font-style: italic; /* Emphasize the cursive nature */
-            letter-spacing: -0.02em;
-        }
-
-        h2 { 
-            font-family: var(--font-tech);
-            font-size: 0.9rem; 
-            text-transform: uppercase; 
-            letter-spacing: 0.05em; 
-            color: var(--text-tertiary); 
-            margin-bottom: 2rem; 
-            margin-top: 4rem; 
-            border-bottom: 1px dashed var(--border);
-            padding-bottom: 10px;
-        }
-        h2:first-of-type { margin-top: 0; }
-
-        h3 { 
-            font-size: 1.8rem; 
-            margin-bottom: 0.5rem; 
-            font-weight: 500;
-        }
-        
-        p, li { 
-            color: var(--text-secondary); 
-            margin-bottom: 1rem; 
-            font-weight: 400;
-        }
-
-        /* --- SIDEBAR --- */
-        .role { 
-            font-size: 1.3rem; 
-            font-style: italic;
-            color: var(--text-secondary); 
-            margin-bottom: 2rem; 
-            display: block; 
-            line-height: 1.3;
-        }
-        
-        .contact-links { 
-            display: flex; 
-            flex-direction: column; 
-            gap: 12px; 
-            font-family: var(--font-tech); /* Tech font for contact data */
-            font-size: 0.85rem;
-        }
-        
-        @media (min-width: 900px) {
-            .contact-links { align-items: flex-end; }
-        }
-
-        /* --- PROJECTS --- */
-        .project-item {
-            margin-bottom: 60px;
-            position: relative;
-        }
-
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 16px;
-        }
-        
-        .project-links {
-            display: flex;
-            gap: 8px;
-        }
-
-        .project-links a {
-            font-family: var(--font-tech);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            border: 1px solid var(--border);
-            padding: 4px 10px;
-            border-radius: 4px;
-            background: #fff;
-        }
-        
-        .project-links a:hover {
-            border-color: var(--text-primary);
-            background: var(--text-primary);
-            color: #fff;
-        }
-
-        /* Concept Tag Style */
-        .tag-concept {
-            cursor: default;
-            background: #f4f4f5 !important;
-            color: #71717a !important; 
-            border-color: transparent !important;
-        }
-
-        .project-details {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .project-details li {
-            margin-bottom: 8px;
-            font-size: 1.25rem; /* Large readable elegant text */
-            line-height: 1.6;
-        }
-
-        /* --- SKILLS (The "Matrix" look) --- */
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 30px;
-        }
-        
-        .skill-category strong {
-            display: block;
-            font-family: var(--font-elegant);
-            font-size: 1.4rem;
-            font-style: italic;
-            margin-bottom: 10px;
-            color: var(--text-primary);
-        }
-
-        .skill-list {
-            font-family: var(--font-tech);
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-
-        /* --- MISC --- */
-        .quote-box {
-            padding: 40px;
-            background: #fff;
-            border: 1px solid var(--border);
-            margin-top: 40px;
-        }
-        
-        .quote-box p {
-            font-size: 1.5rem;
-            font-style: italic;
-            margin: 0;
-            color: var(--text-primary);
-        }
-
-        .edu-item { margin-bottom: 30px; }
-        .edu-meta {
-            font-family: var(--font-tech);
-            font-size: 0.85rem;
-            color: var(--text-tertiary);
-            margin-top: 4px;
-        }
-
-        footer {
-            margin-top: 100px;
-            padding-top: 40px;
-            border-top: 1px solid var(--border);
-            font-family: var(--font-tech);
-            font-size: 0.8rem;
-            color: var(--text-tertiary);
-        }
-
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
 
     <div class="layout">
-        
+
         <aside class="sidebar">
             <header>
                 <h1>Karthikeyan<br>Reddy<br>Tiyyagura</h1>
                 <span class="role">Computer Science Undergraduate<br>& Full-Stack Architect</span>
-                
+
                 <div class="contact-links">
-                    <a href="mailto:karthikeyanhimself@gmail.com">karthikeyanhimself@gmail.com</a>
-                    <a href="tel:+917569639260">+91 7569639260</a>
-                    <a href="https://github.com/Karthikeyanhimself" target="_blank">github.com/Karthikeyanhimself</a>
-                    <a href="https://www.linkedin.com/in/karthikeyan-reddy" target="_blank">linkedin.com/in/karthikeyan-reddy</a>
+                    <a href="mailto:karthikeyanhimself@gmail.com" class="contact-item profile-link">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                            </path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <span>karthikeyanhimself@gmail.com</span>
+                    </a>
+
+                    <a href="tel:+917569639260" class="contact-item profile-link">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                            </path>
+                        </svg>
+                        <span>+91 7569639260</span>
+                    </a>
+
+                    <a href="https://github.com/Karthikeyanhimself" target="_blank" class="contact-item profile-link">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path
+                                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                            </path>
+                        </svg>
+                        <span>GitHub Profile</span>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/karthikeyan-reddy" target="_blank"
+                        class="contact-item profile-link">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                            </path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                        <span>LinkedIn Profile</span>
+                    </a>
+                    <a href="https://x.com/Karthikeyanhimself" target="_blank" class="contact-item profile-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="0"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z">
+                            </path>
+                        </svg>
+                        <span>X (Twitter)</span>
+                    </a>
                 </div>
             </header>
         </aside>
 
         <main>
-            
+
             <section id="projects">
                 <h2>Selected Engineering</h2>
 
@@ -283,8 +107,10 @@
                         </span>
                     </div>
                     <ul class="project-details">
-                        <li>Unofficial, high-performance landing page redesign demonstrating modern enterprise UI patterns.</li>
-                        <li>Implemented immersive 3D elements using React Three Fiber without compromising Core Web Vitals.</li>
+                        <li>Unofficial, high-performance landing page redesign demonstrating modern enterprise UI
+                            patterns.</li>
+                        <li>Implemented immersive 3D elements using React Three Fiber without compromising Core Web
+                            Vitals.</li>
                         <li>Engineered with Next.js 14, Tailwind CSS, and Framer Motion for fluid interactivity.</li>
                     </ul>
                 </article>
@@ -292,7 +118,8 @@
                 <article class="project-item">
                     <div class="project-header">
                         <h3>Secure Headless CMS & Analytics</h3>
-                        <span class="project-links"><a href="https://adminportfoliodashboard.vercel.app" target="_blank">Live System</a></span>
+                        <span class="project-links"><a href="https://adminportfoliodashboard.vercel.app"
+                                target="_blank">Live System</a></span>
                     </div>
                     <ul class="project-details">
                         <li>Engineered a fully decoupled CMS using Next.js 14, Prisma, and Supabase.</li>
@@ -304,7 +131,9 @@
                 <article class="project-item">
                     <div class="project-header">
                         <h3>AI-Powered Assessment Platform</h3>
-                        <span class="project-links"><a href="https://github.com/Karthikeyanhimself/Content-Generators-for-Programming-Educators" target="_blank">GitHub</a></span>
+                        <span class="project-links"><a
+                                href="https://github.com/Karthikeyanhimself/Content-Generators-for-Programming-Educators"
+                                target="_blank">GitHub</a></span>
                     </div>
                     <ul class="project-details">
                         <li>Built a production-ready platform for automated evaluation and AI-driven feedback.</li>
@@ -316,7 +145,9 @@
                 <article class="project-item">
                     <div class="project-header">
                         <h3>IPL Match Winner Prediction</h3>
-                        <span class="project-links"><a href="https://github.com/Karthikeyanhimself/IPL-MATCH-WINNER-PREDICTION" target="_blank">GitHub</a></span>
+                        <span class="project-links"><a
+                                href="https://github.com/Karthikeyanhimself/IPL-MATCH-WINNER-PREDICTION"
+                                target="_blank">GitHub</a></span>
                     </div>
                     <ul class="project-details">
                         <li>Developed an ensemble ML system (CatBoost, XGBoost, GBM) achieving 89.55% accuracy.</li>
@@ -328,19 +159,22 @@
                 <article class="project-item">
                     <div class="project-header">
                         <h3>NutriGuide — AI Nutrition Assistant</h3>
-                        <span class="project-links"><a href="https://github.com/Karthikeyanhimself/AI-Powered-Nutrition-Guide" target="_blank">GitHub</a></span>
+                        <span class="project-links"><a
+                                href="https://github.com/Karthikeyanhimself/AI-Powered-Nutrition-Guide"
+                                target="_blank">GitHub</a></span>
                     </div>
                     <ul class="project-details">
                         <li>Created a location-aware nutrition assistant using Next.js 14 and Google Gemini AI.</li>
-                        <li>System analyzes dish safety based on specific health conditions and dietary restrictions.</li>
+                        <li>System analyzes dish safety based on specific health conditions and dietary restrictions.
+                        </li>
                         <li>Designed a fluid, responsive UI using Tailwind CSS and Framer Motion.</li>
                     </ul>
                 </article>
             </section>
 
             <section id="skills">
-                <h2>Technical Architecture</h2>
-                
+                <h2>Technical Skills</h2>
+
                 <div class="tech-grid">
                     <div class="skill-category">
                         <strong>AI & GenAI</strong>
@@ -376,19 +210,17 @@
 
             <section id="education">
                 <h2>Education & Certifications</h2>
-                
+
                 <div class="edu-item">
                     <h3>Vignan’s Foundation for Science, Technology and Research</h3>
                     <div class="edu-meta">B.Tech — Computer Science and Engineering [2022 – 2026]</div>
                 </div>
 
-                <div class="tech-grid">
-                    <div class="skill-category">
-                        <strong>Certifications</strong>
-                        <div class="skill-list">
-                            Cisco Junior Cybersecurity Analyst<br>
-                            Cambridge PET (B1) — Score: 158
-                        </div>
+                <div class="skill-category" style="margin-top: 30px;">
+                    <strong>Certifications</strong>
+                    <div class="skill-list">
+                        Cisco Junior Cybersecurity Analyst<br>
+                        Cambridge PET (B1) — Score: 158
                     </div>
                 </div>
             </section>
@@ -397,21 +229,31 @@
                 <h2>Distinctions</h2>
                 <div class="quote-box">
                     <p>Winner — Supervity AI & PythonGuru Hackathon</p>
-                    <div style="font-family: var(--font-tech); font-size: 0.9rem; margin-top: 15px; color: var(--text-tertiary);">
-                        Built a thermal-driven predictive maintenance copilot using OpenCV, RAG, and a local Mistral-7B LLM.
+                    <div class="achieve-desc">
+                        Built a Thermal-Driven Predictive Maintenance Copilot integrating OpenCV for thermal anomaly
+                        detection and a local Mistral-7B LLM. Implemented RAG for historical context and custom safety
+                        guardrails.
                     </div>
                 </div>
                 <div style="margin-top: 30px;">
-                    <p><strong>NSS UEAC Leadership:</strong> Led logistics for 2024–25, coordinating large-scale university events.</p>
+                    <p><strong>NSS UEAC Leadership:</strong> Led logistics for 2024–25, coordinating large-scale
+                        university events.</p>
                 </div>
             </section>
 
             <footer>
-                No buzzwords. No stock photos.<br>
-                Just systems, data, and shipped work.
+                <div class="footer-quote">
+                    Focused on clean architecture, real data, and shipping meaningful work.
+                </div>
+
+                <div class="footer-meta">
+                    <span class="contact-availability">Available 08:00 — 18:00 via Email or Phone.</span>
+                    <span id="clock" class="clock-display"></span>
+                </div>
             </footer>
 
         </main>
     </div>
 </body>
+
 </html>

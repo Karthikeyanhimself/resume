@@ -1,0 +1,301 @@
+/* --- DESIGN TOKENS --- */
+:root {
+    /* Palette */
+    --bg: #FDFBF7;
+    --surface: #FFFFFF;
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a4a4a;
+    --text-tertiary: #8c8c8c;
+    --accent: #D94625;
+    --border: #e6e2dd;
+
+    /* Type Scale */
+    --font-elegant: 'Cormorant Garamond', serif;
+    --font-tech: 'Anonymous Pro', monospace;
+
+    --max-w: 1200px;
+}
+
+/* --- RESET & BASE --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text-primary);
+    font-family: var(--font-elegant);
+    font-size: 20px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+/* --- LAYOUT GRID --- */
+.layout {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 40px 24px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 60px;
+}
+
+@media (min-width: 900px) {
+    .layout {
+        grid-template-columns: 320px 1fr;
+        gap: 100px;
+        padding: 100px 40px;
+    }
+
+    .sidebar {
+        position: sticky;
+        top: 80px;
+        height: fit-content;
+        text-align: right;
+    }
+}
+
+/* --- TYPOGRAPHY --- */
+h1,
+h2,
+h3 {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+h1 {
+    font-size: 3rem;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    font-family: var(--font-tech);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-tertiary);
+    margin-bottom: 2.5rem;
+    border-bottom: 1px dashed var(--border);
+    padding-bottom: 15px;
+}
+
+section {
+    margin-bottom: 100px;
+}
+
+h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+p,
+li {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+/* --- SIDEBAR --- */
+.role {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    display: block;
+    line-height: 1.3;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-family: var(--font-tech);
+    font-size: 0.85rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-secondary);
+}
+
+.contact-item:hover {
+    color: var(--accent);
+}
+
+.contact-item svg {
+    width: 18px;
+    height: 18px;
+    stroke-width: 2px;
+}
+
+@media (min-width: 900px) {
+    .contact-links {
+        align-items: flex-end;
+    }
+
+    .contact-item {
+        flex-direction: row-reverse;
+    }
+}
+
+/* --- PROJECTS --- */
+.project-item {
+    margin-bottom: 70px;
+    position: relative;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.project-links {
+    display: flex;
+    gap: 8px;
+}
+
+.project-links a {
+    font-family: var(--font-tech);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    border-radius: 4px;
+    background: #fff;
+}
+
+.project-links a:hover {
+    border-color: var(--text-primary);
+    background: var(--text-primary);
+    color: #fff;
+}
+
+.tag-concept {
+    cursor: default;
+    background: #f4f4f5 !important;
+    color: #71717a !important;
+    border-color: transparent !important;
+}
+
+.project-details {
+    list-style-type: square;
+    padding-left: 20px;
+    margin-top: 15px;
+}
+
+.project-details li {
+    margin-bottom: 8px;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.project-details li::marker {
+    color: var(--accent);
+}
+
+/* --- SKILLS --- */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 40px;
+}
+
+.skill-category strong {
+    display: block;
+    font-family: var(--font-elegant);
+    font-size: 1.4rem;
+    font-style: italic;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+    border-bottom: 1px solid transparent;
+}
+
+.skill-list {
+    font-family: var(--font-tech);
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.9;
+}
+
+/* --- EDUCATION & MISC --- */
+.edu-item {
+    margin-bottom: 30px;
+}
+
+.edu-meta {
+    font-family: var(--font-tech);
+    font-size: 0.9rem;
+    color: var(--text-tertiary);
+    margin-top: 6px;
+}
+
+.quote-box {
+    padding: 30px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    margin-bottom: 40px;
+}
+
+.quote-box p {
+    font-size: 1.4rem;
+    font-style: italic;
+    margin: 0;
+    color: var(--text-primary);
+}
+
+.achieve-desc {
+    font-family: var(--font-tech);
+    font-size: 0.9rem;
+    margin-top: 15px;
+    color: var(--text-tertiary);
+}
+
+/* --- FOOTER --- */
+footer {
+    margin-top: 120px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+    font-family: var(--font-tech);
+    font-size: 0.85rem;
+    color: var(--text-tertiary);
+}
+
+.footer-quote {
+    margin-bottom: 24px;
+}
+
+.footer-meta {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--border);
+    color: var(--text-secondary);
+}
+
+.clock-display {
+    color: var(--accent);
+    font-weight: 700;
+}
