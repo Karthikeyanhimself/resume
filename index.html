@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Portfolio of Karthikeyan Reddy Tiyyagura" />
+    <title>Karthikeyan Reddy — Architect & Engineer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- DESIGN TOKENS --- */
+        :root {
+            /* Palette: Organic, Paper-like, High Contrast */
+            --bg: #FDFBF7;           /* Warm Rice Paper */
+            --surface: #FFFFFF;      /* Pure White */
+            --text-primary: #1a1a1a; /* Soft Black */
+            --text-secondary: #4a4a4a;
+            --text-tertiary: #8c8c8c;
+            --accent: #D94625;       /* Burnt Orange/Rust (Classic Editorial Accent) */
+            --border: #e6e2dd;
+            
+            /* Type Scale */
+            --font-elegant: 'Cormorant Garamond', serif;
+            --font-tech: 'Anonymous Pro', monospace;
+            
+            --max-w: 1200px;
+        }
+
+        /* --- RESET & BASE --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            background-color: var(--bg);
+            color: var(--text-primary);
+            font-family: var(--font-elegant);
+            font-size: 20px; /* Serifs need to be larger to be readable */
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { 
+            text-decoration: none; 
+            color: inherit; 
+            border-bottom: 1px solid var(--border);
+            transition: all 0.2s ease;
+        }
+        
+        a:hover { 
+            color: var(--accent); 
+            border-bottom-color: var(--accent); 
+        }
+
+        /* --- LAYOUT GRID --- */
+        .layout {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 40px 24px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+        }
+
+        @media (min-width: 900px) {
+            .layout {
+                grid-template-columns: 320px 1fr; /* Fixed Sidebar | Fluid Content */
+                gap: 100px;
+                padding: 100px 40px;
+            }
+            .sidebar {
+                position: sticky;
+                top: 80px;
+                height: fit-content;
+                text-align: right; /* Editorial touch: Right align sidebar on desktop */
+            }
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3 { 
+            font-weight: 600; 
+            color: var(--text-primary);
+        }
+
+        h1 { 
+            font-size: 3rem; 
+            line-height: 1; 
+            margin-bottom: 0.5rem; 
+            font-style: italic; /* Emphasize the cursive nature */
+            letter-spacing: -0.02em;
+        }
+
+        h2 { 
+            font-family: var(--font-tech);
+            font-size: 0.9rem; 
+            text-transform: uppercase; 
+            letter-spacing: 0.05em; 
+            color: var(--text-tertiary); 
+            margin-bottom: 2rem; 
+            margin-top: 4rem; 
+            border-bottom: 1px dashed var(--border);
+            padding-bottom: 10px;
+        }
+        h2:first-of-type { margin-top: 0; }
+
+        h3 { 
+            font-size: 1.8rem; 
+            margin-bottom: 0.5rem; 
+            font-weight: 500;
+        }
+        
+        p, li { 
+            color: var(--text-secondary); 
+            margin-bottom: 1rem; 
+            font-weight: 400;
+        }
+
+        /* --- SIDEBAR --- */
+        .role { 
+            font-size: 1.3rem; 
+            font-style: italic;
+            color: var(--text-secondary); 
+            margin-bottom: 2rem; 
+            display: block; 
+            line-height: 1.3;
+        }
+        
+        .contact-links { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 12px; 
+            font-family: var(--font-tech); /* Tech font for contact data */
+            font-size: 0.85rem;
+        }
+        
+        @media (min-width: 900px) {
+            .contact-links { align-items: flex-end; }
+        }
+
+        /* --- PROJECTS --- */
+        .project-item {
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+        
+        .project-links a {
+            font-family: var(--font-tech);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            border: 1px solid var(--border);
+            padding: 4px 10px;
+            border-radius: 4px;
+            background: #fff;
+        }
+        
+        .project-links a:hover {
+            border-color: var(--text-primary);
+            background: var(--text-primary);
+            color: #fff;
+        }
+
+        .project-details {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .project-details li {
+            margin-bottom: 8px;
+            font-size: 1.25rem; /* Large readable elegant text */
+            line-height: 1.6;
+        }
+
+        /* --- SKILLS (The "Matrix" look) --- */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-category strong {
+            display: block;
+            font-family: var(--font-elegant);
+            font-size: 1.4rem;
+            font-style: italic;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .skill-list {
+            font-family: var(--font-tech);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* --- MISC --- */
+        .quote-box {
+            padding: 40px;
+            background: #fff;
+            border: 1px solid var(--border);
+            margin-top: 40px;
+        }
+        
+        .quote-box p {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin: 0;
+            color: var(--text-primary);
+        }
+
+        .edu-item { margin-bottom: 30px; }
+        .edu-meta {
+            font-family: var(--font-tech);
+            font-size: 0.85rem;
+            color: var(--text-tertiary);
+            margin-top: 4px;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+            font-family: var(--font-tech);
+            font-size: 0.8rem;
+            color: var(--text-tertiary);
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="layout">
+        
+        <aside class="sidebar">
+            <header>
+                <h1>Karthikeyan<br>Reddy<br>Tiyyagura</h1>
+                <span class="role">Computer Science Undergraduate<br>& Full-Stack Architect</span>
+                
+                <div class="contact-links">
+                    <a href="mailto:karthikeyanhimself@gmail.com">karthikeyanhimself@gmail.com</a>
+                    <a href="tel:+917569639260">+91 7569639260</a>
+                    <a href="https://github.com/Karthikeyanhimself" target="_blank">github.com/Karthikeyanhimself</a>
+                    <a href="https://www.linkedin.com/in/karthikeyan-reddy" target="_blank">linkedin.com/in/karthikeyan-reddy</a>
+                </div>
+            </header>
+        </aside>
+
+        <main>
+            
+            <section id="projects">
+                <h2>Selected Engineering</h2>
+
+                <article class="project-item">
+                    <div class="project-header">
+                        <h3>Secure Headless CMS & Analytics</h3>
+                        <span class="project-links"><a href="https://adminportfoliodashboard.vercel.app" target="_blank">Live System</a></span>
+                    </div>
+                    <ul class="project-details">
+                        <li>Engineered a fully decoupled CMS using Next.js 14, Prisma, and Supabase.</li>
+                        <li>Built a privacy-focused telemetry engine specifically to avoid third-party cookies.</li>
+                        <li>Hardened APIs with rate limiting, bot protection, and OWASP-aligned security standards.</li>
+                    </ul>
+                </article>
+
+                <article class="project-item">
+                    <div class="project-header">
+                        <h3>AI-Powered Assessment Platform</h3>
+                        <span class="project-links"><a href="https://github.com/Karthikeyanhimself/Content-Generators-for-Programming-Educators" target="_blank">GitHub</a></span>
+                    </div>
+                    <ul class="project-details">
+                        <li>Built a production-ready platform for automated evaluation and AI-driven feedback.</li>
+                        <li>Integrated Firebase Auth, Firestore, and Cloud Functions within a Next.js ecosystem.</li>
+                        <li>Implemented robust teacher dashboards and student submission workflows.</li>
+                    </ul>
+                </article>
+
+                <article class="project-item">
+                    <div class="project-header">
+                        <h3>IPL Match Winner Prediction</h3>
+                        <span class="project-links"><a href="https://github.com/Karthikeyanhimself/IPL-MATCH-WINNER-PREDICTION" target="_blank">GitHub</a></span>
+                    </div>
+                    <ul class="project-details">
+                        <li>Developed an ensemble ML system (CatBoost, XGBoost, GBM) achieving 89.55% accuracy.</li>
+                        <li>Designed a complete preprocessing and feature-engineering pipeline from scratch.</li>
+                        <li>Reduced variance and improved consistency using a weighted voting classifier.</li>
+                    </ul>
+                </article>
+
+                <article class="project-item">
+                    <div class="project-header">
+                        <h3>NutriGuide — AI Nutrition Assistant</h3>
+                        <span class="project-links"><a href="https://github.com/Karthikeyanhimself/AI-Powered-Nutrition-Guide" target="_blank">GitHub</a></span>
+                    </div>
+                    <ul class="project-details">
+                        <li>Created a location-aware nutrition assistant using Next.js 14 and Google Gemini AI.</li>
+                        <li>System analyzes dish safety based on specific health conditions and dietary restrictions.</li>
+                        <li>Designed a fluid, responsive UI using Tailwind CSS and Framer Motion.</li>
+                    </ul>
+                </article>
+            </section>
+
+            <section id="skills">
+                <h2>Technical Architecture</h2>
+                
+                <div class="tech-grid">
+                    <div class="skill-category">
+                        <strong>AI & GenAI</strong>
+                        <div class="skill-list">
+                            Prompt Engineering (CoT)<br>
+                            RAG Systems<br>
+                            Agentic Workflows<br>
+                            LLM Integration
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <strong>Backend & Cloud</strong>
+                        <div class="skill-list">
+                            Next.js / React.js<br>
+                            Spring Boot<br>
+                            AWS & Supabase<br>
+                            PostgreSQL / MySQL
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <strong>Machine Learning</strong>
+                        <div class="skill-list">
+                            Scikit-learn<br>
+                            XGBoost / CatBoost<br>
+                            Pandas & NumPy<br>
+                            Ensemble Learning
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="education">
+                <h2>Education & Certifications</h2>
+                
+                <div class="edu-item">
+                    <h3>Vignan’s Foundation for Science, Technology and Research</h3>
+                    <div class="edu-meta">B.Tech — Computer Science and Engineering [2022 – 2026]</div>
+                </div>
+
+                <div class="tech-grid">
+                    <div class="skill-category">
+                        <strong>Certifications</strong>
+                        <div class="skill-list">
+                            Cisco Junior Cybersecurity Analyst<br>
+                            Cambridge PET (B1) — Score: 158
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="achievements">
+                <h2>Distinctions</h2>
+                <div class="quote-box">
+                    <p>Winner — Supervity AI & PythonGuru Hackathon</p>
+                    <div style="font-family: var(--font-tech); font-size: 0.9rem; margin-top: 15px; color: var(--text-tertiary);">
+                        Built a thermal-driven predictive maintenance copilot using OpenCV, RAG, and a local Mistral-7B LLM.
+                    </div>
+                </div>
+                <div style="margin-top: 30px;">
+                    <p><strong>NSS UEAC Leadership:</strong> Led logistics for 2024–25, coordinating large-scale university events.</p>
+                </div>
+            </section>
+
+            <footer>
+                No buzzwords. No stock photos.<br>
+                Just systems, data, and shipped work.
+            </footer>
+
+        </main>
+    </div>
+</body>
+</html>
