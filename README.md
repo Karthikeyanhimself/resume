@@ -1,4 +1,4 @@
-# Portfolio Website
+# Resume Website
 
 A minimal, high-performance personal portfolio website built with plain **HTML, CSS, and JavaScript**. Designed for clarity, typography-driven layout, and performance without frameworks.
 
